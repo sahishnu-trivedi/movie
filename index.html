@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple todo App</title>
+    <title>Movie Database</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <div class="container">
-        
+        <form id="searchForm">
+            <input type="text" id="movieId">
+            <button type="submit" id="getApi">Get API</button>
+        </form>
+        <div id="target"></div>
+        <!-- <button id="getImgApi">Get Image API</button> -->
     </div>
+
+    <!-- Creating Template For Moustache -->
+    <script id="movie_tmpl" type="text/template">
+        <!-- Name of the Object -->
+        {{#Search}}
+            <a href="/?id={{imdbID}}" class="movie_main">
+                <img src="{{Poster}}" alt="">
+                <h2>{{Title}}</h2>
+                <h3>{{Genre}}</h3>
+                <p>{{Plot}}</p>
+            </a>
+        {{/Search}}
+    </script>
+
+    <script src="js/mustache.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
